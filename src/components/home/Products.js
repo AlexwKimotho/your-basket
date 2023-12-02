@@ -66,7 +66,7 @@ const Products = () => {
                 {item.title.substring(0, 20)}
               </h2>
               <p className="text-sm text-gray-600 font-semibold">
-                ${item.price}
+                ksh {item.price}
               </p>
             </div>
             <div>
@@ -93,20 +93,12 @@ const Products = () => {
                   })
                 )
               }
-              className="w-full py-1.5 rounded-md mt-3 font-titleFont font-medium text-base bg-gradient-to-tr from-yellow-400 to-yellow-200 border border-yellow-500 hover:border-yellow-700 hover:from-yellow-300 to hover:to-yellow-400 active:bg-gradient-to-bl active:from-yellow-400 active:to-yellow-500 duration-200"
+              className="w-full py-1.5 rounded-md mt-4 font-titleFont font-small text-base bg-gradient-to-tr from-yellow-400 to-yellow-200 border border-yellow-500 hover:border-yellow-700 hover:from-yellow-300 to hover:to-yellow-400 active:bg-gradient-to-bl active:from-yellow-400 active:to-yellow-500 duration-200"
             >
-              Add to Cart
+              Add to Cart | <span><ShoppingCartIcon/></span>
             </button>
           </div>
-          {/* ========== Product Info End here ================= */}
-          {/* ============ Product Image Start here ======== */}
-
-          {/* ============ Product drop-down Start here ==== */}
-          {/* ============ Product drop-down End here ====== */}
-
-          {/* ============ Product Image End here ========== */}
-          {/* ============ Product Info Start here ========= */}
-          {/* ============ Product Info End here =========== */}
+      
         </div>
       ))}
     </div>

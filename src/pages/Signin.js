@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import ArrowRightIcon from "@mui/icons-material/ArrowRight";
-import { darkLogo } from "../assets/index";
+import { logo } from "../assets/index";
 
 const Signin = () => {
   const [email, setEmail] = useState("");
@@ -42,7 +42,7 @@ const Signin = () => {
       <div className="w-full bg-gray-100 pb-10">     
           <form className="w-[350px] mx-auto flex flex-col items-center">
             <Link to="/">
-              <img className="w-32" src={darkLogo} alt="darkLogo" />
+              <img className="w-52 py-7" src={logo} alt="darkLogo" />
             </Link>
             <div className="w-full border border-zinc-200 p-6">
               <h2 className="font-titleFont text-3xl font-medium mb-4">
@@ -89,14 +89,14 @@ const Signin = () => {
                 </div>
                 <button
                   onClick={handleLogin}
-                  className="w-full py-1.5 text-sm font-normal rounded-sm bg-gradient-to-t from-[#f7dfa5] to-[#f0c14b] hover:bg-gradient-to-b border border-zinc-400 active:border-yellow-800 active:shadow-amazonInput"
+                  className="w-full py-1.5 text-sm font-normal rounded-sm bg-gradient-to-t from-[#f3f7a5] to-[#f0c14b] hover:bg-gradient-to-b border border-zinc-400 active:border-yellow-800 active:shadow-amazonInput"
                 >
                   Continue
                 </button>
                
               </div>
               <p className="text-xs text-black leading-4 mt-4">
-                By Continuing, you agree to Amazon's{" "}
+                By Continuing, you agree to Your Basket's{" "}
                 <span className="text-blue-600">Conditions of Use </span>and{" "}
                 <span className="text-blue-600">Privace Notice.</span>
               </p>
@@ -109,12 +109,12 @@ const Signin = () => {
             </div>
             <p className="w-full text-xs text-gray-600 mt-4 flex items-center">
               <span className="w-1/3 h-[1px] bg-zinc-400 inline-flex"></span>
-              <span className="w-1/3 text-center">New to Amazon?</span>
+              <span className="w-1/3 text-center">New to <br/>Your Basket?</span>
               <span className="w-1/3 h-[1px] bg-zinc-400 inline-flex"></span>
             </p>
             <Link className="w-full" to="/registration">
               <button className="w-full py-1.5 mt-4 text-sm font-normal rounded-sm bg-gradient-to-t from-slate-200 to-slate-100 hover:bg-gradient-to-b border border-zinc-400 active:border-yellow-800 active:shadow-amazonInput">
-                Create your Amazon account
+                Sign-Up
               </button>
             </Link>
           </form>
@@ -133,8 +133,8 @@ const Signin = () => {
           </p>
         </div>
         <p className="text-xs text-gray-600">
-          © 1996-2023, ReactBd.com, Inc. or its affiliates
-        </p>
+          © Your Basket
+                  </p>
       </div>
     </div>
   );

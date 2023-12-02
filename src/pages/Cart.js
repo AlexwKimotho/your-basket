@@ -1,12 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import CheckCircleIcon from "@mui/icons-material/CheckCircle";
-import {
-  deleteItem,
-  resetCart,
-  increaseQuantity,
-  decreaseQuantity,
-} from "../redux/amazonSlice";
+import { deleteItem, resetCart, increaseQuantity, decreaseQuantity } from "../redux/amazonSlice";
 import { motion } from "framer-motion";
 import { emptyCart } from "../assets";
 import { Link } from "react-router-dom";
@@ -26,14 +20,14 @@ const Cart = () => {
   }, [products]);
   // ============ Total Amount End here ================
   return (
-    <div className="w-full bg-gray-100 p-4">
+    <div className="w-full bg-gray-100 p-8 ">
       {products.length > 0 ? (
-        <div className="container mx-auto h-auto grid grid-cols-5 gap-8">
+        <div className="container mx-auto h-auto grid grid-cols-6 gap-8">
           <div className="w-full bg-white px-4 col-span-5 xl:col-span-4">
             {/* ====================== Cart title Start here ======================= */}
             <div className="font-titleFont hidden xl:flex items-center justify-between border-b-[1px] border-b-gray-400 py-3">
               <h1 className="text-3xl font-semibold">Shopping Cart</h1>
-              <h3 className="text-xl font-semibold">Subtotal</h3>
+              <h3 className="text-xl font-medium">Subtotal</h3>
             </div>
             {/* ====================== Cart title End here ========================= */}
             {/* ====================== Products Start here ========================= */}
@@ -54,13 +48,12 @@ const Cart = () => {
                     </div>
                     <div className="w-full flex flex-col gap-2 xl:gap-1">
                       <h2 className="font-semibold text-lg">{item.title}</h2>
-                      <p className="xl:pr-10 text-sm">{item.description}</p>
+                      {/* <p className="xl:pr-10 text-sm">{item.description}</p> */}
                       <p className="text-base">
-                        Unit Price:{" "}
-                        <span className="font-semibold">${item.price}</span>
+                        Price:{" "}
+                        <span>ksh {item.price}</span>
                       </p>
-                      <div className="bg-[#F0F2F2] flex justify-center items-center gap-2 w-36 py-1 text-center drop-shadow-lg rounded-md">
-                        <p className="text-base font-normal">Qty:</p>
+                      <div className="bg-[#F0F2F2] flex justify-center items-center gap-2 w-24 py-1 text-center drop-shadow-lg rounded-md">
                         <p
                           onClick={() => {
                             dispatch(decreaseQuantity(item.id));
@@ -69,7 +62,7 @@ const Cart = () => {
                         >
                           -
                         </p>
-                        <p className="font-titleFont text-base font-semibold text-amazon_blue">
+                        <p className="font-titleFont text-base text-amazon_blue">
                           {item.quantity}
                         </p>
                         <p
@@ -81,7 +74,7 @@ const Cart = () => {
                       </div>
                       <button
                         onClick={() => dispatch(deleteItem(item.id))}
-                        className="bg-red-500 w-36 py-1 rounded-lg text-white mt-2 hover:bg-red-700 active:bg-red-900 duration-300"
+                        className="bg-red-500 w-24 py-1 rounded-lg text-white mt-2 text-sm hover:bg-red-700 active:bg-red-900 duration-300"
                       >
                         Delete Item
                       </button>
@@ -90,8 +83,8 @@ const Cart = () => {
                     {/* ====================== Right Start here =========================== */}
 
                     <div className="w-full md:w-24">
-                      <p className="text-lg xl:w-24 font-titleFont font-semibold">
-                        ${item.price * item.quantity}
+                      <p className="text-lg xl:w-24 font-titleFont ">
+                        ksh{item.price * item.quantity}
                       </p>
                     </div>
                     {/* ====================== Right End here ============================= */}
@@ -100,31 +93,44 @@ const Cart = () => {
               ))}
             </div>
             {/* ====================== Products End here =========================== */}
-            <div onClick={() => dispatch(resetCart())} className="w-full py-4">
-              <button className="px-10 py-2 bg-red-500 hover:bg-red-600 active:bg-red-500 text-white rounded-lg font-titleFont font-semibold text-lg tracking-wide">
+            <div onClick={() => dispatch(resetCart())} className="w-full py-3">
+              <button className="px-5 py-2 bg-red-500 hover:bg-red-600 active:bg-red-500 text-white rounded-lg font-titleFont font-semibold text-lg tracking-wide">
                 Clear Cart
               </button>
             </div>
+            
           </div>
-          <div className="col-span-5 md:col-span-3 lg:col-span-2 xl:col-span-1 bg-white h-52 flex items-center p-4">
+          {/* right-side card start */}
+          <div className=" bg-white h-72 w-96 flexitems-center p-4  ">
             <div>
-              <p className="flex gap-2 items-start text-sm">
-                <span>
-                  <CheckCircleIcon className="bg-white text-green-500 rounded-full" />
-                </span>
-                Your order qualifies for FREE Shipping Choose this option at
-                checkout. See details....
-              </p>
+              <h1 className="flex gap-2 items- text-2xl font-semibold border-b-[2px] border-b-gray-400 py-3"> 
+               Order Summary
+              </h1>
               <div>
                 <p className="font-semibold px-6 py-1 flex items-center justify-between">
-                  Total: <span className="text-lg font-bold">${totalAmt}</span>
+                  Sub Total : ksh {totalAmt}
                 </p>
               </div>
+              <div>
+                <p className="font-semibold px-6 py-1 flex items-center justify-between" >
+                  Delivery Fees : ksh {totalAmt}
+                </p>
+              </div>
+              
+              <div>
+                <p className="font-semibold px-6 py-1 flex items-center justify-between border-b-[2px] border-b-gray-400">
+                  Total : ksh {totalAmt}
+                </p>
+              </div>
+              <Link to="/checkout">
               <button className="w-full font-titleFont font-medium text-base bg-gradient-to-tr from-yellow-400 to-yellow-200 border hover:from-yellow-300 hover:to-yellow-400 border-yellow-500 hover:border-yellow-700 active:bg-gradient-to-bl active:from-yellow-400 active:to-yellow-500 duration-200 py-1.5 rounded-md mt-3">
-                Proceed to Buy
+                Proceed to Checkout
               </button>
+              </Link>
             </div>
           </div>
+          {/* Right-side cart end */}
+           
         </div>
       ) : (
         <motion.div

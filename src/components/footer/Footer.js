@@ -1,5 +1,4 @@
 import React from "react";
-import FooterBottom from "./FooterBottom";
 import FooterMiddle from "./FooterMiddle";
 import FooterTop from "./FooterTop";
 
@@ -8,7 +7,6 @@ const Footer = () => {
     <div className="font-titleFont">
       <FooterTop />
       <FooterMiddle />
-      <FooterBottom />
     </div>
   );
 };

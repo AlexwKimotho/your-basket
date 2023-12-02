@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import ArrowRightIcon from "@mui/icons-material/ArrowRight";
-import { darkLogo } from "../assets/index";
+import { logo } from "../assets/index";
 
 const Registration = () => {
   const [clientName, setClientName] = useState("");
@@ -93,7 +93,7 @@ const Registration = () => {
       <div className="w-full bg-gray-100 pb-10">
         <form className="w-[370px] mx-auto flex flex-col items-center">
           <Link to="/">
-            <img className="w-32" src={darkLogo} alt="darkLogo" />
+            <img className="w-52 py-7" src={logo} alt="darkLogo" />
           </Link>
           <div className="w-full border border-zinc-200 p-6">
             <h2 className="font-titleFont text-3xl font-medium mb-4">
@@ -178,7 +178,7 @@ const Registration = () => {
                 onClick={handleRegistration}
                 className="w-full py-1.5 text-sm font-normal rounded-sm bg-gradient-to-t from-[#f7dfa5] to-[#f0c14b] hover:bg-gradient-to-b border border-zinc-400 active:border-yellow-800 active:shadow-amazonInput"
               >
-                Continue
+                Sign Up
               </button>
             </div>
             <p className="text-xs text-black leading-4 mt-4">
@@ -221,7 +221,7 @@ const Registration = () => {
           </p>
         </div>
         <p className="text-xs text-gray-600">
-          © 1996-2023, ReactBd.com, Inc. or its affiliates
+          © Your Basket
         </p>
       </div>
     </div>

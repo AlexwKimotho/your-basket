@@ -18,7 +18,7 @@ const HeaderBottom = () => {
     });
   }, [ref, sidebar]);
   return (
-    <div className="w-full px-4 h-[36px] bg-amazon_light text-white flex items-center">
+    <div className="w-full px-4 h-[36px] bg-gray-400 text-black flex items-center">
       {/* ======================= List Items Start here ======================== */}
       <ul className="flex items-center gap-2 text-sm tracking-wide">
         <li
@@ -46,7 +46,7 @@ const HeaderBottom = () => {
               transition={{ duration: 0.5 }}
               className="w-[290px] md:w-[350px] h-full bg-white border border-black"
             >
-              <div className="w-full bg-amazon_light text-white py-2 px-6 flex items-center gap-4">
+              <div className="w-full bg-gray-400 text-black py-2 px-6 flex items-center gap-4">
                 {userInfo ? (
                   <img
                     className="w-10 h-10 rounded-full"
