@@ -79,30 +79,30 @@ const Cart = () => {
                   checked={selectAll}
                   onChange={handleSelectAllChange}
                 />
-                <h1 className="text-3xl font-semibold">Shopping Cart</h1>
+                <h1 className="text-3xl font-semibold">Cart</h1>
               </div>
               <div className="flex items-center gap-4">
                 <button
                   onClick={handleDeleteSelected}
-                  className="bg-red-500 w-24 py-1 rounded-lg text-white mt-2 text-sm hover:bg-red-700 active:bg-red-900 duration-300"
-                >
+                  className="border border-green-900 w-24 py-1 rounded-lg text-green-900 mt-2 text-sm hover:bg-gray-300 active:bg-gray-300 duration-300"
+                  >
                   Delete Selected
                 </button>
                 <button
                   onClick={handleDeleteUnselected}
-                  className="bg-red-500 w-32 py-1 rounded-lg text-white mt-2 text-sm hover:bg-red-700 active:bg-red-900 duration-300"
+                  className="border border-green-900 w-32 py-1 rounded-lg text-green-900 mt-2 text-sm hover:bg-gray-300 active:bg-gray-300 duration-300"
                 >
                   Delete Unselected
                 </button>
                 <button
                   onClick={() => dispatch(resetCart())}
-                  className="bg-red-500 w-24 py-1 rounded-lg text-white mt-2 text-sm hover:bg-red-700 active:bg-red-900 duration-300"
+                  className="border border-green-900 w-24 py-1 rounded-lg text-green-900 mt-2 text-sm hover:bg-gray-300 active:bg-gray-300 duration-300"
                 >
                   Clear Cart
                 </button>
                 <button
                   onClick={handleDeselectAll}
-                  className="bg-red-500 w-24 py-1 rounded-lg text-white mt-2 text-sm hover:bg-red-700 active:bg-red-900 duration-300"
+                  className="border border-green-900 w-24 py-1 rounded-lg text-green-900 mt-2 text-sm hover:bg-gray-300 active:bg-gray-300 duration-300"
                 >
                   Deselect All
                 </button>
@@ -132,15 +132,15 @@ const Cart = () => {
                     <div className="w-full flex flex-col gap-2 xl:gap-1">
                       <h2 className="font-semibold text-lg">{item.title}</h2>
                       <p className="xl:pr-10 text-sm">{item.description}</p>
-                      <p className="text-base">
+                      {/* <p className="text-base">
                         Price: <span>ksh {item.price}</span>
-                      </p>
+                      </p> */}
                       <div className="bg-[#F0F2F2] flex justify-center items-center gap-2 w-24 py-1 text-center drop-shadow-lg rounded-md">
                         <p
                           onClick={() => {
                             dispatch(decreaseQuantity(item.id));
                           }}
-                          className="cursor-pointer bg-gray-200 px-2 rounded-sm hover:bg-green-400 font-semibold duration-300"
+                          className="cursor-pointer bg-gray-200 px-2 rounded-sm hover:bg-green-900 font-semibold duration-300"
                         >
                           -
                         </p>
@@ -149,7 +149,7 @@ const Cart = () => {
                         </p>
                         <p
                           onClick={() => dispatch(increaseQuantity(item.id))}
-                          className="cursor-pointer bg-gray-200 px-2 rounded-sm hover:bg-green-400 font-semibold duration-300"
+                          className="cursor-pointer bg-gray-200 px-2 rounded-sm hover:bg-green-900 font-semibold duration-300"
                         >
                           +
                         </p>
@@ -162,8 +162,8 @@ const Cart = () => {
                       </button>
                     </div>
                     <div className="w-full md:w-24">
-                      <p className="text-lg xl:w-24 font-titleFont ">
-                        ksh{item.price * item.quantity}
+                      <p className="text-lg xl:w-24 font-titleFont font-bold">
+                        ksh {item.price}
                       </p>
                     </div>
                   </div>
