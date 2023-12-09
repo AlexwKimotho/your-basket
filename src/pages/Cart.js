@@ -42,6 +42,21 @@ const Cart = () => {
     setSelectedItems(selectAll ? [] : products.map((item) => item.id));
   };
 
+  const handleDeleteSelected = () => {
+    dispatch(deleteItem(selectedItems));
+  };
+
+  const handleDeleteUnselected = () => {
+    const unselectedItems = products
+      .filter((item) => !selectedItems.includes(item.id))
+      .map((item) => item.id);
+    dispatch(deleteItem(unselectedItems));
+  };
+
+  const handleDeselectAll = () => {
+    dispatch(resetCart());
+  };
+
   const [totalAmt, setTotalAmt] = useState("");
   useEffect(() => {
     let price = 0;
@@ -66,7 +81,32 @@ const Cart = () => {
                 />
                 <h1 className="text-3xl font-semibold">Shopping Cart</h1>
               </div>
-              <h3 className="text-xl font-medium">Subtotal</h3>
+              <div className="flex items-center gap-4">
+                <button
+                  onClick={handleDeleteSelected}
+                  className="bg-red-500 w-24 py-1 rounded-lg text-white mt-2 text-sm hover:bg-red-700 active:bg-red-900 duration-300"
+                >
+                  Delete Selected
+                </button>
+                <button
+                  onClick={handleDeleteUnselected}
+                  className="bg-red-500 w-32 py-1 rounded-lg text-white mt-2 text-sm hover:bg-red-700 active:bg-red-900 duration-300"
+                >
+                  Delete Unselected
+                </button>
+                <button
+                  onClick={() => dispatch(resetCart())}
+                  className="bg-red-500 w-24 py-1 rounded-lg text-white mt-2 text-sm hover:bg-red-700 active:bg-red-900 duration-300"
+                >
+                  Clear Cart
+                </button>
+                <button
+                  onClick={handleDeselectAll}
+                  className="bg-red-500 w-24 py-1 rounded-lg text-white mt-2 text-sm hover:bg-red-700 active:bg-red-900 duration-300"
+                >
+                  Deselect All
+                </button>
+              </div>
             </div>
             <div>
               {products.map((item) => (
