@@ -17,8 +17,8 @@ module.exports = {
         xl: "1280px",
       },
       fontFamily: {
-        titleFont: "Poppins",
-        bodyFont: "Poppins",
+        titleFont: "inter",
+        bodyFont: "inter",
       },
       colors: {
         amazon_blue: "#131921",

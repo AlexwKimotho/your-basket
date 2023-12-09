@@ -1,10 +1,6 @@
 import React, { useState } from "react";
 import Slider from "react-slick";
 import {
-  bannerImgOne,
-  bannerImgTwo,
-  bannerImgThree,
-  bannerImgFour,
   bannerImgFive,
 } from "../../assets/index";
 
@@ -149,18 +145,6 @@ const Banner = () => {
     <div className="w-full">
       <div className="w-full h-full relative">
         <Slider {...settings}>
-          <div>
-            <img src={bannerImgOne} alt="bannerImgOne" />
-          </div>
-          <div>
-            <img src={bannerImgTwo} alt="bannerImgTwo" />
-          </div>
-          <div>
-            <img src={bannerImgThree} alt="bannerImgThree" />
-          </div>
-          <div>
-            <img src={bannerImgFour} alt="bannerImgFour" />
-          </div>
           <div>
             <img src={bannerImgFive} alt="bannerImgFive" />
           </div>

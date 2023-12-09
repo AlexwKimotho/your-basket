@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useRef, useState, useEffect } from "react";
 import { useLoaderData } from "react-router-dom";
 import StarIcon from "@mui/icons-material/Star";
 import ApiIcon from "@mui/icons-material/Api";
@@ -6,13 +6,31 @@ import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 import ArrowCircleRightIcon from "@mui/icons-material/ArrowCircleRight";
 import FavoriteIcon from "@mui/icons-material/Favorite";
 import { useDispatch } from "react-redux";
+import AccountCircleIcon from "@mui/icons-material/AccountCircle";
+import CloseIcon from "@mui/icons-material/Close";
+import SideNavContent from "./SidebarSummary";
 import { addToCart } from "../../redux/amazonSlice";
+import { motion } from "framer-motion";
+import { useSelector } from "react-redux";
+
 
 const Products = () => {
   const data = useLoaderData();
   const productsData = data.data;
   const dispatch = useDispatch();
+  const userInfo = useSelector((state) => state.amazonReducer.userInfo);
+  const ref = useRef();
+  const [sidebar, setSidebar] = useState(false);
+  useEffect(() => {
+    document.body.addEventListener("click", (e) => {
+      if (e.target.contains(ref.current)) {
+        setSidebar(false);
+      }
+    });
+  }, [ref, sidebar]);
+
   return (
+    <div>
     <div className="max-w-screen-2xl mx-auto grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-10 xl:gap-4 px-4">
       {productsData.map((item) => (
         <div
@@ -80,7 +98,7 @@ const Products = () => {
               </div>
             </div>
             <button
-              onClick={() =>
+              onClick={() => {
                 dispatch(
                   addToCart({
                     id: item.id,
@@ -91,16 +109,84 @@ const Products = () => {
                     image: item.image,
                     quantity: 1,
                   })
-                )
-              }
+                );
+                setSidebar(true);
+              }}
               className="w-full py-1.5 rounded-md mt-4 font-titleFont font-small text-base bg-gradient-to-tr from-yellow-400 to-yellow-200 border border-yellow-500 hover:border-yellow-700 hover:from-yellow-300 to hover:to-yellow-400 active:bg-gradient-to-bl active:from-yellow-400 active:to-yellow-500 duration-200"
             >
-              Add to Cart | <span><ShoppingCartIcon/></span>
+              Add to Cart |{" "}
+              <span>
+                <ShoppingCartIcon />
+              </span>
             </button>
           </div>
-      
         </div>
       ))}
+     
+    </div>
+     {/* ======================= SideBar Start here =========================== */}
+      {sidebar && (
+        <div className="w-full h-screen text-black fixed top-0 left-0 bg-amazon_blue bg-opacity-50 z-50">
+          <div className="w-full h-full relative">
+            <motion.div
+              ref={ref}
+              initial={{ x: -500, opacity: 0 }}
+              animate={{ x: 0, opacity: 1 }}
+              transition={{ duration: 0.5 }}
+              className="w-[290px] md:w-[350px] h-full bg-white border border-black absolute top-0 right-0 z-50"
+            >
+              <div className="w-full bg-gray-400 text-black py-2 px-6 flex items-center gap-4">
+                {userInfo ? (
+                  <img
+                    className="w-10 h-10 rounded-full"
+                    src={userInfo.image}
+                    alt="UserImg"
+                  />
+                ) : (
+                  <AccountCircleIcon />
+                )}
+                <h3 className="font-titleFont font-bold text-lg tracking-wide">
+                  Hello, Sign In
+                </h3>
+              </div>
+              {/* ============================ Content & Devices Start here ================ */}
+              <SideNavContent
+                title="Digital Content & Devices"
+                one="Amazon Music"
+                two="Kindle E-readers & Books"
+                three="Amazon Appstore"
+              />
+              <SideNavContent
+                title="Shop By Department"
+                one="Electronics"
+                two="Computers"
+                three="Smart Home"
+              />
+              <SideNavContent
+                title="Programs & Features"
+                one="Gift Cards"
+                two="Amazon live"
+                three="International Shopping"
+              />
+              <SideNavContent
+                title="Help & Settings"
+                one="Your Account"
+                two="Customer Service"
+                three="Contact us"
+              />
+              {/* ============================ Content & Devices End here ================ */}
+              <span
+                onClick={() => setSidebar(false)}
+                className="cursor-pointer absolute top-0 left-[300px] md:left-[360px] w-10 h-10 text-black flex items-center justify-center border bg-gray-200 hover:bg-red-500 hover:text-white duration-300"
+              >
+                <CloseIcon />
+              </span>
+            </motion.div>
+          </div>
+        </div>
+      )}
+      {/* ======================= SideBar End here ============================= */}
+    
     </div>
   );
 };

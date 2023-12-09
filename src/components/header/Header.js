@@ -27,7 +27,7 @@ const Header = () => {
 
   return (
     <div className="sticky top-0 z-50">
-      <div className="w-full bg-gray-300 text-black px-4 py-3 flex md:justify-between items-center gap-2 md:gap-4 lgl:gap-2 xl:gap-4">
+      <div className="w-full  text-black px-4 py-3 flex md:justify-between items-center gap-2 md:gap-4 lgl:gap-2 xl:gap-4" style={{ backgroundColor: '#ffcc00', color: 'black' }}>
         {/* ===================== Header Image Start here ======================== */}
         <Link to="/">
           <div className="headerHover">
@@ -35,17 +35,7 @@ const Header = () => {
           </div>
         </Link>
         {/* ===================== Header Image End here ========================== */}
-        {/* ===================== Header Deliver Start here ====================== */}
-        <div className="hidden md:inline-flex headerHover">
-          <LocationOnOutlinedIcon />
-          <p className="flex flex-col text-xs text-black font-light">
-            Country{" "}
-            <span className="text-sm font-semibold -mt-1 text-black">
-              Kenya
-            </span>
-          </p>
-        </div>
-        {/* ===================== Header Deliver End here ======================== */}
+    
         {/* ===================== Header Search Start here ======================== */}
         <div className="hidden lgl:inline-flex h-10 rounded-md flex-grow relative">
           <span
@@ -76,10 +66,10 @@ const Header = () => {
           )}
 
           <input
-            className="h-full text-base text-amazon_blue flex-grow outline-none border-none px-2"
+            className="h-full text-base bg-gray-50 text-amazon_blue flex-grow outline-none border-none px-2"
             type="text"
           />
-          <span className="w-12 h-full flex items-center justify-center bg-amazon_yellow hover:bg-[#f3a847] duration-300 text-amazon_blue cursor-pointer rounded-tr-md rounded-br-md">
+          <span className="w-12 h-full flex items-center justify-center bg-gray-200  hover:bg-[#f3a847] duration-300 text-amazon_blue cursor-pointer rounded-tr-md rounded-br-md">
             <SearchIcon />
           </span>
         </div>
@@ -126,7 +116,7 @@ const Header = () => {
         )}
         {/* ===================== Header Cart End here ============================ */}
       </div>
-      <HeaderBottom />
+      <HeaderBottom/>
     </div>
   );
 };

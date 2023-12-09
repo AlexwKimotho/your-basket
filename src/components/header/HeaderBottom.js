@@ -18,7 +18,7 @@ const HeaderBottom = () => {
     });
   }, [ref, sidebar]);
   return (
-    <div className="w-full px-4 h-[36px] bg-gray-400 text-black flex items-center">
+    <div className="w-full px-4 h-[36px] bg-white text-black flex items-center">
       {/* ======================= List Items Start here ======================== */}
       <ul className="flex items-center gap-2 text-sm tracking-wide">
         <li
