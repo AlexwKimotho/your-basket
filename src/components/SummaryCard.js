@@ -1,10 +1,9 @@
 import React, { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
-import { aspira, ipay, mpesa } from "../assets/index";
+import { mpesa, Mastercard, PayPal, visaLogo } from "../assets/index";
 import { Link } from "react-router-dom";
 
 const SummaryCard = () => {
-
   const products = useSelector((state) => state.amazonReducer.products);
 
   const [totalAmt, setTotalAmt] = useState("");
@@ -45,35 +44,52 @@ const SummaryCard = () => {
             <p className="font-semibold text-lg mb-2">
               Accepted Payment Methods
             </p>
-          <div className="grid grid-cols-3 gap-2">
-  {/* Payment Method 1 */}
-  <div className="flex items-center flex-col">
-    <input type="radio" id="ipay" name="paymentMethod" value="ipay" />
-    <label htmlFor="ipay" className="ml-2">
-      <img src={ipay} alt="iPay Logo" className="h-6 w-auto" />
-      <span className="ml-2">iPay</span>
-    </label>
-  </div>
+            <div className="grid grid-cols-1 gap-2 justify-end">
+              {/* Payment Method 1 */}
+              <div className="flex items-center">
+                <input
+                  type="radio"
+                  id="debit/credit"
+                  name="paymentMethod"
+                  value="debit/credit"
+                />
+                <label htmlFor="ipay" className="ml-2">
+                  <span className="mr-2">Debit/Credit card</span>
+                </label>
+                <img src={visaLogo} alt="debit/credit" className=" w-auto" />
+                <div></div>
+                <img src={Mastercard} alt="debit/credit" className=" w-auto" />
 
-  {/* Payment Method 2 */}
-  <div className="flex items-center flex-col">
-    <input type="radio" id="aspira" name="paymentMethod" value="aspira" />
-    <label htmlFor="aspira" className="ml-2">
-      <img src={aspira} alt="Aspira Logo" className="h-6 w-auto" />
-      <span className="ml-2">Aspira</span>
-    </label>
-  </div>
+              </div>
 
-  {/* Payment Method 3 */}
-  <div className="flex items-center flex-col">
-    <input type="radio" id="mpesa" name="paymentMethod" value="mpesa" />
-    <label htmlFor="mpesa" className="ml-2">
-      <img src={mpesa} alt="M-Pesa Logo" className="h-6 w-auto" />
-      <span className="ml-2">M-Pesa</span>
-    </label>
-  </div>
-</div>
+              {/* Payment Method 2 */}
+              <div className="flex items-center">
+                <input
+                  type="radio"
+                  id="paypal"
+                  name="paymentMethod"
+                  value="paypal"
+                />
+                <label htmlFor="paypal" className="ml-2">
+                  <span className="mr-2">Paypal</span>
+                </label>
+                <img src={PayPal} alt="PayPal" className="w-auto" />
+              </div>
 
+              {/* Payment Method 3 */}
+              <div className="flex items-center">
+                <input
+                  type="radio"
+                  id="mobileMoney"
+                  name="paymentMethod"
+                  value="mobileMoney"
+                />
+                <label htmlFor="mobileMoney" className="ml-2">
+                  <span className="mr-2">Mobile Money</span>
+                </label>
+                <img src={mpesa} alt="mobileMoney" className=" w-auto" />
+              </div>
+            </div>
           </div>
 
           <div className="mt-4">
