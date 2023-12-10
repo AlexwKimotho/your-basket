@@ -1,13 +1,11 @@
 import React, { useEffect, useRef, useState } from "react";
 import { useSelector } from "react-redux";
-import LocationOnOutlinedIcon from "@mui/icons-material/LocationOnOutlined";
 import ArrowDropDownOutlinedIcon from "@mui/icons-material/ArrowDropDownOutlined";
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 import SearchIcon from "@mui/icons-material/Search";
 import LogoutIcon from "@mui/icons-material/Logout";
 import { allItems } from "../../constants";
 import { logo } from "../../assets/index";
-import HeaderBottom from "./HeaderBottom";
 import { Link } from "react-router-dom";
 
 const Header = () => {
@@ -27,8 +25,8 @@ const Header = () => {
 
   return (
     <div className="sticky top-0 z-50">
-      <div className="w-full  text-black px-4 py-3 flex md:justify-between items-center gap-2 md:gap-4 lgl:gap-2 xl:gap-4" style={{ backgroundColor: '#ffcc00', color: 'black' }}>
-        {/* ===================== Header Image Start here ======================== */}
+      <div className="w-full bg-white text-black px-4 py-3 flex md:justify-between items-center gap-2 md:gap-4 lgl:gap-2 xl:gap-4" style={{ backgroundColor: 'white', color: 'black' }}> 
+        {/* ===================== Header Image Start here ======================== ffcc00 */}
         <Link to="/">
           <div className="headerHover">
             <img className="w-52 mt-2" src={logo} alt="logoImage" />
@@ -116,7 +114,6 @@ const Header = () => {
         )}
         {/* ===================== Header Cart End here ============================ */}
       </div>
-      <HeaderBottom/>
     </div>
   );
 };

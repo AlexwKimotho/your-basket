@@ -38,10 +38,29 @@ export const amazonSlice = createSlice({
         (item) => item.id !== action.payload
       );
     },
+    deleteSelectedItems: (state, action) => {
+      const selectedIds = action.payload;
+      state.products = state.products.filter(
+        (item) => !selectedIds.includes(item.id)
+      );
+    },
+    
+    deleteUnselectedItems: (state, action) => {
+      const unselectedIds = action.payload;
+      state.products = state.products.filter(
+        (item) => !unselectedIds.includes(item.id)
+      );
+    },
+    deselectAllItems: (state) => {
+      state.products.forEach((item) => {
+        item.selected = false;
+      });
+    },
     // Reset cart to initial state
     resetCart: (state) => {
       state.products = [];
     },
+    
     // ============= Product Reducers End here =================
     // ============= UserInfo Reducers Start here ==============
     // User authentication
@@ -56,6 +75,9 @@ export const {
   resetCart,
   increaseQuantity,
   decreaseQuantity,
+  deleteSelectedItems,
+  deleteUnselectedItems,
+  deselectAllItems,  
 
 } = amazonSlice.actions;
 export default amazonSlice.reducer;
