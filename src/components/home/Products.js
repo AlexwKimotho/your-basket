@@ -6,19 +6,13 @@ import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 import ArrowCircleRightIcon from "@mui/icons-material/ArrowCircleRight";
 import FavoriteIcon from "@mui/icons-material/Favorite";
 import { useDispatch } from "react-redux";
-import AccountCircleIcon from "@mui/icons-material/AccountCircle";
-import CloseIcon from "@mui/icons-material/Close";
-import SideNavContent from "./SidebarSummary";
+import CartSidebar from "../sidebar/cartSidebar"
 import { addToCart } from "../../redux/amazonSlice";
-import { motion } from "framer-motion";
-import { useSelector } from "react-redux";
-
 
 const Products = () => {
   const data = useLoaderData();
   const productsData = data.data;
   const dispatch = useDispatch();
-  const userInfo = useSelector((state) => state.amazonReducer.userInfo);
   const ref = useRef();
   const [sidebar, setSidebar] = useState(false);
   useEffect(() => {
@@ -125,68 +119,10 @@ const Products = () => {
      
     </div>
      {/* ======================= SideBar Start here =========================== */}
-      {sidebar && (
-        <div className="w-full h-screen text-black fixed top-0 left-0 bg-amazon_blue bg-opacity-50 z-50">
-          <div className="w-full h-full relative">
-            <motion.div
-              ref={ref}
-              initial={{ x: -500, opacity: 0 }}
-              animate={{ x: 0, opacity: 1 }}
-              transition={{ duration: 0.5 }}
-              className="w-[290px] md:w-[350px] h-full bg-white border border-black absolute top-0 right-0 z-50"
-            >
-              <div className="w-full bg-gray-400 text-black py-2 px-6 flex items-center gap-4">
-                {userInfo ? (
-                  <img
-                    className="w-10 h-10 rounded-full"
-                    src={userInfo.image}
-                    alt="UserImg"
-                  />
-                ) : (
-                  <AccountCircleIcon />
-                )}
-                <h3 className="font-titleFont font-bold text-lg tracking-wide">
-                  Hello, Sign In
-                </h3>
-              </div>
-              {/* ============================ Content & Devices Start here ================ */}
-              <SideNavContent
-                title="Digital Content & Devices"
-                one="Amazon Music"
-                two="Kindle E-readers & Books"
-                three="Amazon Appstore"
-              />
-              <SideNavContent
-                title="Shop By Department"
-                one="Electronics"
-                two="Computers"
-                three="Smart Home"
-              />
-              <SideNavContent
-                title="Programs & Features"
-                one="Gift Cards"
-                two="Amazon live"
-                three="International Shopping"
-              />
-              <SideNavContent
-                title="Help & Settings"
-                one="Your Account"
-                two="Customer Service"
-                three="Contact us"
-              />
-              {/* ============================ Content & Devices End here ================ */}
-              <span
-                onClick={() => setSidebar(false)}
-                className="cursor-pointer absolute top-0 left-[300px] md:left-[360px] w-10 h-10 text-black flex items-center justify-center border bg-gray-200 hover:bg-red-500 hover:text-white duration-300"
-              >
-                <CloseIcon />
-              </span>
-            </motion.div>
-          </div>
-        </div>
-      )}
+      <CartSidebar sidebar={sidebar} setSidebar={setSidebar} />
       {/* ======================= SideBar End here ============================= */}
-    
+      
+
     </div>
   );
 };

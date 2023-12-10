@@ -32,7 +32,7 @@ const SummaryCard = () => {
             </p>
             <p className="flex justify-between items-center">
               <span>Delivery Fees :</span>
-              <span>ksh {totalAmt}</span>
+              <span>based on delivery option</span>
             </p>
             <p className="flex justify-between items-center border-b-2 border-b-gray-400 pb-3">
               <span>Total :</span>
@@ -101,7 +101,7 @@ const SummaryCard = () => {
           </div>
 
           <div className="mt-2 text-center">
-            <span>or quickly checkout with </span>
+            <span>or</span>
           </div>
           <div className="relative inline-block mt-2">
             <button className="bg-yellow-400 py-2 px-4 inline-flex items-center">

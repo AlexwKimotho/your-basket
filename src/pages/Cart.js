@@ -82,7 +82,7 @@ const Cart = () => {
               <div className="flex items-center gap-4">
                 <button
                   onClick={handleDeleteSelected}
-                  className="border border-green-900 w-24 py-1 rounded-lg text-green-900 mt-2 text-sm hover:bg-gray-300 active:bg-gray-300 duration-300"
+                  className="border border-green-900 w-32 py-1 rounded-lg text-green-900 mt-2 text-sm hover:bg-gray-300 active:bg-gray-300 duration-300"
                 >
                   Delete Selected
                 </button>
