@@ -77,15 +77,8 @@ const Header = () => {
           <div className="flex flex-col items-start justify-center headerHover">
            
               <p className="text-xs text-black font-light">
-                Hello, sign in
-              </p>
-           
-            <p className="hidden md:inline-flex text-sm font-semibold -mt-1 text-black">
-              Accounts & Lists{" "}
-              <span>
-                <ArrowDropDownOutlinedIcon />
-              </span>
-            </p>
+                Sign-in
+              </p>   
           </div>
         </Link>
         {/* ===================== Header Signin End here ========================== */}

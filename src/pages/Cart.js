@@ -166,7 +166,7 @@ const Cart = () => {
             aspira={aspira}
             mpesa={mpesa}
           />
-          {/* End of Order Summarry card */}
+          {/* End of Order Summary card */}
         </div>
       ) : (
         <motion.div

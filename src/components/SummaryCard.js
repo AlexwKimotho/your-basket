@@ -77,17 +77,18 @@ const SummaryCard = () => {
               </div>
 
               {/* Payment Method 3 */}
-              <div className="flex items-center">
+              <div className="flex justify-start items-center">
                 <input
                   type="radio"
                   id="mobileMoney"
                   name="paymentMethod"
                   value="mobileMoney"
                 />
+                
                 <label htmlFor="mobileMoney" className="ml-2">
                   <span className="mr-2">Mobile Money</span>
                 </label>
-                <img src={mpesa} alt="mobileMoney" className=" w-auto" />
+                <img src={mpesa} alt="mobileMoney" className=" w-auto " />
               </div>
             </div>
           </div>
