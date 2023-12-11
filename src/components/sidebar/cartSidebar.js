@@ -51,7 +51,7 @@ const Sidebar = ({ sidebar, setSidebar }) => {
               initial={{ x: 500, opacity: 0 }}
               animate={{ x: 0, opacity: 1 }}
               transition={{ duration: 0.5 }}
-              className="w-[350px] md:w-[480px] h-full bg-white border border-black absolute top-0 right-0 z-50 overflow-y-auto flex flex-col"
+              className="w-[350px] md:w-[480px] h-full bg-white border border-black absolute top-0 right-0 z-50 overflow-y-auto flex flex-col rounded-lg"
             >
               {/* Cart Summary */}
               <div className="flex-grow overflow-y-auto">

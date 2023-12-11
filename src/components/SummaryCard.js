@@ -19,7 +19,7 @@ const SummaryCard = () => {
   return (
     <div>
       {/* Order Summary card */}
-      <div className="bg-white h-120 w-96 flex items-center p-4">
+      <div className="bg-white h-120 w-96 flex items-center p-4  rounded-lg">
         <div className="text-center w-full">
           <p className="font-semibold text-2xl border-b-2 border-b-gray-400 pb-3">
             Order Summary

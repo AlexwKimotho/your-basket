@@ -69,7 +69,7 @@ const Cart = () => {
     <div className="w-full bg-gray-100 p-8 ">
       {products.length > 0 ? (
         <div className="container mx-auto h-auto grid grid-cols-6 gap-8">
-          <div className="w-full bg-white px-4 col-span-5 xl:col-span-4">
+          <div className="w-full bg-white px-4 col-span-5 xl:col-span-4 rounded-lg">
             <div className="font-titleFont hidden xl:flex items-center justify-between border-b-[1px] border-b-gray-400 py-3">
               <div className="flex items-center gap-4">
                 <input

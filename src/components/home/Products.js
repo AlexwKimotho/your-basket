@@ -29,7 +29,7 @@ const Products = () => {
       {productsData.map((item) => (
         <div
           key={item.id}
-          className="bg-white h-auto border-[1px] border-gray-200 py-6 z-30 hover:border-transparent shadow-none hover:shadow-testShadow duration-200 relative flex flex-col gap-4"
+          className=" rounded-lg bg-white h-auto border-[1px] border-gray-200 py-6 z-30 hover:border-transparent shadow-none hover:shadow-testShadow duration-200 relative flex flex-col gap-4"
         >
           <span className="text-xs capitalize italic absolute top-2 right-2 text-gray-500">
             {item.category}
