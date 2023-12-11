@@ -62,7 +62,7 @@ const Sidebar = ({ sidebar, setSidebar }) => {
                     </h3>
                     <button
                       onClick={() => dispatch(resetCart())}
-                      className="border border-red-900 w-20 py-1 rounded-lg text-red-900 mt-1 text-sm hover:bg-gray-300 active:bg-gray-300 duration-300"
+                      className="border border-green-800 w-20 py-1 rounded-lg text-green-800 mt-1 text-sm hover:bg-red-300 active:bg-red-300 duration-300"
                     >
                       Clear Cart
                     </button>
@@ -92,7 +92,7 @@ const Sidebar = ({ sidebar, setSidebar }) => {
                                 onClick={() => {
                                   dispatch(decreaseQuantity(item.id));
                                 }}
-                                className="cursor-pointer bg-gray-200 px-1 rounded-sm hover:bg-green-900 font-semibold duration-300"
+                                className="cursor-pointer bg-gray-200 px-1 rounded-sm hover:bg-green-800 font-semibold duration-300"
                               >
                                 -
                               </p>
@@ -103,7 +103,7 @@ const Sidebar = ({ sidebar, setSidebar }) => {
                                 onClick={() =>
                                   dispatch(increaseQuantity(item.id))
                                 }
-                                className="cursor-pointer bg-gray-200 px-1 rounded-sm hover:bg-green-900 font-semibold duration-300"
+                                className="cursor-pointer bg-gray-200 px-1 rounded-sm hover:bg-green-800 font-semibold duration-300"
                               >
                                 +
                               </p>
@@ -115,7 +115,7 @@ const Sidebar = ({ sidebar, setSidebar }) => {
                         } `}</span>
                         <DeleteIcon
                           onClick={() => dispatch(deleteItem(item.id))}
-                          className="ml-2 text-red-600 hover:text-red-800 cursor-pointer"
+                          className="ml-2 text-green-800 hover:text-red-800 cursor-pointer"
                         />
                       </li>
                     ))}

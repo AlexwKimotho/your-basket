@@ -82,19 +82,19 @@ const Cart = () => {
               <div className="flex items-center gap-4">
                 <button
                   onClick={handleDeleteSelected}
-                  className="border border-green-900 w-32 py-1 rounded-lg text-green-900 mt-2 text-sm hover:bg-gray-300 active:bg-gray-300 duration-300"
+                  className="border border-green-900 w-32 py-1 rounded-lg text-green-900 mt-2 text-sm hover:bg-red-300 active:bg-red-300 duration-300"
                 >
                   Delete Selected
                 </button>
                 <button
                   onClick={handleDeleteUnselected}
-                  className="border border-green-900 w-32 py-1 rounded-lg text-green-900 mt-2 text-sm hover:bg-gray-300 active:bg-gray-300 duration-300"
+                  className="border border-green-900 w-32 py-1 rounded-lg text-green-900 mt-2 text-sm hover:bg-red-300 active:bg-red-300 duration-300"
                 >
                   Delete Unselected
                 </button>
                 <button
                   onClick={() => dispatch(resetCart())}
-                  className="border border-green-900 w-24 py-1 rounded-lg text-green-900 mt-2 text-sm hover:bg-gray-300 active:bg-gray-300 duration-300"
+                  className="border border-green-900 w-24 py-1 rounded-lg text-green-900 mt-2 text-sm hover:bg-red-300 active:bg-red-300 duration-300"
                 >
                   Clear Cart
                 </button>
@@ -122,13 +122,13 @@ const Cart = () => {
                         onChange={() => handleCheckboxChange(item.id)}
                       />
                       <img
-                        className="w-full h-44 object-contain"
+                        className="w-full h-24 object-contain"
                         src={item.image}
                         alt="productImg"
                       />
                     </div>
                     <div className="w-full flex flex-col gap-2 xl:gap-1">
-                      <h2 className="font-semibold text-lg">{item.title}</h2>
+                      <h2 className="font-semibold text-md">{item.title}</h2>
                       <p className="xl:pr-10 text-sm">{item.description}</p>
                       <div className="bg-[#F0F2F2] flex justify-center items-center gap-2 w-24 py-1 text-center drop-shadow-lg rounded-md">
                         <p
@@ -139,7 +139,7 @@ const Cart = () => {
                         >
                           -
                         </p>
-                        <p className="font-titleFont text-base text-amazon_blue">
+                        <p className="font-titleFont text-sm text-amazon_blue">
                           {item.quantity}
                         </p>
                         <p
@@ -151,7 +151,7 @@ const Cart = () => {
                       </div>
                     </div>
                     <div className="w-full md:w-24">
-                      <p className="text-lg xl:w-24 font-titleFont font-bold">
+                      <p className="text-md xl:w-24 font-titleFont font-bold">
                         ksh {item.price}
                       </p>
                     </div>
