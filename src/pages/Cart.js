@@ -77,7 +77,7 @@ const Cart = () => {
                   checked={selectAll}
                   onChange={handleSelectAllChange}
                 />
-                <h1 className="text-3xl font-semibold">Cart</h1>
+                <h1 className="text-lg font-semibold">Cart</h1>
               </div>
               <div className="flex items-center gap-4">
                 <button

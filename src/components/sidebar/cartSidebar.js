@@ -1,5 +1,5 @@
 // Sidebar.js
-import React, { useRef, useEffect } from "react";
+import React, { useRef, useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import { useSelector, useDispatch } from "react-redux";
 import {
@@ -13,11 +13,26 @@ import { Mastercard } from "../../assets";
 import { PayPal } from "../../assets";
 import { visaLogo } from "../../assets";
 import { mpesa } from "../../assets";
+import { Link } from "react-router-dom";
 
 const Sidebar = ({ sidebar, setSidebar }) => {
   const products = useSelector((state) => state.amazonReducer.products);
   const dispatch = useDispatch();
   const sidebarRef = useRef(null);
+  const [selectedItems, setSelectedItems] = useState ([]);
+
+  const handleCheckboxChange = (itemId) => {
+    const updatedSelectedItems = [...selectedItems];
+    const itemIndex = updatedSelectedItems.indexOf(itemId);
+
+    if (itemIndex === -1) {
+      updatedSelectedItems.push(itemId);
+    } else {
+      updatedSelectedItems.splice(itemIndex, 1);
+    }
+
+    setSelectedItems(updatedSelectedItems);
+  };
 
   useEffect(() => {
     const handleClickOutside = (event) => {
@@ -74,6 +89,13 @@ const Sidebar = ({ sidebar, setSidebar }) => {
                         className="flex items-center justify-between px-6 py-2"
                       >
                         <div className="flex items-center">
+
+                          <input
+                           type="checkbox"
+                           checked={selectedItems.includes(item.id)}
+                           onChange={() => handleCheckboxChange(item.id)}
+                          />
+
                           <img
                             src={item.image}
                             alt={item.title}
@@ -81,7 +103,7 @@ const Sidebar = ({ sidebar, setSidebar }) => {
                           />
 
                           <div>
-                            <p className="font-medium">{item.title}</p>
+                            <p className="font-lg">{item.title}</p>
                             {/* <p className="font-medium">{item.description}</p> */}
                             <p className="text-gray-500">
                               Quantity: {item.quantity}
@@ -177,6 +199,24 @@ const Sidebar = ({ sidebar, setSidebar }) => {
                 <div className="flex justify-between text-sm font-bold">
                   <span>Total:</span>
                   <span>{`KSH ${total}`}</span>
+                </div>
+                <div className="items-center">
+                <div className="mt-2">
+                  <Link to="/checkout">
+                    <button className="w-60 font-titleFont border-b-2 font-medium text-sm bg-gradient-to-tr from-yellow-400 to-yellow-200 border hover:from-yellow-300 hover:to-yellow-400 border-yellow-500 hover:border-yellow-700 active:bg-gradient-to-bl active:from-yellow-400 active:to-yellow-500 duration-200 py-1.5 rounded-md mt-3">
+                      Proceed to Checkout
+                    </button>
+                  </Link>
+                </div>
+
+                <div className="mt-2 text-center">
+                  <span>or</span>
+                </div>
+                <div className="relative inline-block mt-2">
+                  <button className="bg-yellow-400 py-2 px-4 text-sm rounded-lg inline-flex items-center">
+                    Checkout Later
+                  </button>
+                </div>
                 </div>
               </div>
               {/* End Subtotal, Delivery Fees, and Total */}

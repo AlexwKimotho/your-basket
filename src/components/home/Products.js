@@ -37,12 +37,12 @@ const Products = () => {
           {/* ========== Product Image Start here ============== */}
           <div className="w-full h-auto flex items-center justify-center relative group">
             <img
-              className="w-52 h-64 object-contain"
-              src={item.image}
+              className="w-32 h-32 object-contain"
+              src=""
               alt="ProductImg"
             />
             {/* ================== Product mini drop down Start here ============ */}
-            <ul className="absolute w-full h-36 bg-gray-100 -bottom-[160px] group-hover:bottom-0 duration-700 flex flex-col justify-center items-end gap-2">
+            {/* <ul className="absolute w-full h-36 bg-gray-100 -bottom-[160px] group-hover:bottom-0 duration-700 flex flex-col justify-center items-end gap-2">
               <li className="productLi">
                 Compare
                 <span>
@@ -67,17 +67,17 @@ const Products = () => {
                   <FavoriteIcon />
                 </span>
               </li>
-            </ul>
+            </ul> */}
             {/* ================== Product mini drop down End here ============== */}
           </div>
           {/* ========== Product Image End here ================ */}
           {/* ========== Product Info Start here =============== */}
           <div className="px-4 bg-white flex flex-col gap-1 z-10">
             <div className="flex items-center justify-between">
-              <h2 className="font-titleFont tracking-wide text-lg text-amazon_blue font-medium">
+              <h2 className="font-titleFont tracking-wide text-md text-amazon_blue font-semibold">
                 {item.title.substring(0, 20)}
               </h2>
-              <p className="text-sm text-gray-600 font-semibold">
+              <p className="text-gray-600 text-xs font-semibold">
                 ksh {item.price}
               </p>
             </div>
