@@ -5,6 +5,7 @@ import { useSelector, useDispatch } from "react-redux";
 import {
   increaseQuantity,
   decreaseQuantity,
+  deleteSelectedItems,
   deleteItem,
   resetCart,
 } from "../../redux/amazonSlice";
@@ -19,7 +20,8 @@ const Sidebar = ({ sidebar, setSidebar }) => {
   const products = useSelector((state) => state.amazonReducer.products);
   const dispatch = useDispatch();
   const sidebarRef = useRef(null);
-  const [selectedItems, setSelectedItems] = useState ([]);
+  const [selectedItems, setSelectedItems] = useState([]);
+  const [selectedItemsCount, setSelectedItemsCount] = useState(0);
 
   const handleCheckboxChange = (itemId) => {
     const updatedSelectedItems = [...selectedItems];
@@ -32,6 +34,7 @@ const Sidebar = ({ sidebar, setSidebar }) => {
     }
 
     setSelectedItems(updatedSelectedItems);
+    setSelectedItemsCount(updatedSelectedItems.length);
   };
 
   useEffect(() => {
@@ -47,6 +50,26 @@ const Sidebar = ({ sidebar, setSidebar }) => {
       document.removeEventListener("mousedown", handleClickOutside);
     };
   }, [setSidebar]);
+
+  const handleDeleteSelected = () => {
+    dispatch(deleteSelectedItems(selectedItems));
+    setSelectedItems([]);
+    setSelectedItemsCount(0);
+  };
+
+  const handleDeleteOthers = () => {
+    const itemsToDelete = products
+      .filter((item) => selectedItems.includes(item.id))
+      .map((item) => item.id);
+
+    const itemsToKeep = products.filter(
+      (item) => !selectedItems.includes(item.id)
+    );
+
+    dispatch(deleteSelectedItems(itemsToDelete));
+    setSelectedItems(itemsToKeep.map((item) => item.id));
+    setSelectedItemsCount(itemsToKeep.length);
+  };
 
   // Calculate Subtotal, Delivery Fees, and Total
   const subtotal = products.reduce(
@@ -73,8 +96,38 @@ const Sidebar = ({ sidebar, setSidebar }) => {
                 <div className="py-3 border-b-[1px] border-b-gray-300">
                   <div className="flex justify-between items-center">
                     <h3 className="text-lg font-titleFont font-semibold mb-1 px-6">
-                      Cart Summary
+                      Cart
                     </h3>
+                    <button
+                      onClick={handleDeleteSelected}
+                      className=
+                      {`border-2 inline-flex items-center ${
+                        selectedItemsCount > 0
+                          ? "bg-green-800 text-white w-28" // Adjusted width for expansion
+                          : "border-green-900"
+                      } py-1 rounded-lg text-green-900 mt-2 text-sm hover:bg-green-800 hover:text-white active:bg-green-300 duration-300 relative transition-width flex-shrink-0`}
+                    >
+                      <div className="flex items-center px-1">
+                        <DeleteIcon />
+                        {selectedItemsCount > 0 && (
+                          <span className="ml-1 text-xs">
+                            Selected{" "}
+                           
+                          </span>
+                        )}
+                        ({selectedItemsCount})
+                        </div>
+                      
+                    </button>
+
+                    {selectedItemsCount > 0 && (
+                      <button
+                        onClick={handleDeleteOthers}
+                        className="border border-red-800 w-32 py-1 rounded-lg text-red-800 mt-2 text-sm hover:bg-red-300 active:bg-red-300 duration-300"
+                      >
+                        <DeleteIcon /> All Others
+                      </button>
+                    )}
                     <button
                       onClick={() => dispatch(resetCart())}
                       className="border border-green-800 w-20 py-1 rounded-lg text-green-800 mt-1 text-sm hover:bg-red-300 active:bg-red-300 duration-300"
@@ -88,27 +141,22 @@ const Sidebar = ({ sidebar, setSidebar }) => {
                         key={item.id}
                         className="flex items-center justify-between px-6 py-2"
                       >
-                        <div className="flex items-center">
-
+                        <div className="flex items-center gap-5">
                           <input
-                           type="checkbox"
-                           checked={selectedItems.includes(item.id)}
-                           onChange={() => handleCheckboxChange(item.id)}
+                            type="checkbox"
+                            checked={selectedItems.includes(item.id)}
+                            onChange={() => handleCheckboxChange(item.id)}
                           />
-
                           <img
                             src={item.image}
                             alt={item.title}
                             className="h-13 w-10 object-cover mr-2"
                           />
-
                           <div>
                             <p className="font-lg">{item.title}</p>
-                            {/* <p className="font-medium">{item.description}</p> */}
                             <p className="text-gray-500">
                               Quantity: {item.quantity}
                             </p>
-
                             <div className="bg-[#F0F2F2] flex justify-center items-center gap-2 w-16 py-1 text-center drop-shadow-lg rounded-md">
                               <p
                                 onClick={() => {
@@ -201,22 +249,22 @@ const Sidebar = ({ sidebar, setSidebar }) => {
                   <span>{`KSH ${total}`}</span>
                 </div>
                 <div className="items-center">
-                <div className="mt-2">
-                  <Link to="/checkout">
-                    <button className="w-60 font-titleFont border-b-2 font-medium text-sm bg-gradient-to-tr from-yellow-400 to-yellow-200 border hover:from-yellow-300 hover:to-yellow-400 border-yellow-500 hover:border-yellow-700 active:bg-gradient-to-bl active:from-yellow-400 active:to-yellow-500 duration-200 py-1.5 rounded-md mt-3">
-                      Proceed to Checkout
-                    </button>
-                  </Link>
-                </div>
+                  <div className="mt-2">
+                    <Link to="/checkout">
+                      <button className="w-60 font-titleFont border-b-2 font-medium text-sm bg-gradient-to-tr from-yellow-400 to-yellow-200 border hover:from-yellow-300 hover:to-yellow-400 border-yellow-500 hover:border-yellow-700 active:bg-gradient-to-bl active:from-yellow-400 active:to-yellow-500 duration-200 py-1.5 rounded-md mt-3">
+                        Proceed to Checkout
+                      </button>
+                    </Link>
+                  </div>
 
-                <div className="mt-2 text-center">
-                  <span>or</span>
-                </div>
-                <div className="relative inline-block mt-2">
-                  <button className="bg-yellow-400 py-2 px-4 text-sm rounded-lg inline-flex items-center">
-                    Checkout Later
-                  </button>
-                </div>
+                  <div className="mt-2 text-center">
+                    <span>or</span>
+                  </div>
+                  <div className="relative inline-block mt-2">
+                    <button className="bg-yellow-400 py-2 px-4 text-sm rounded-lg inline-flex items-center">
+                      Checkout Later
+                    </button>
+                  </div>
                 </div>
               </div>
               {/* End Subtotal, Delivery Fees, and Total */}
