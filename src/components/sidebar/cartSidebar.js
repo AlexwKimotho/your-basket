@@ -78,8 +78,8 @@ const Sidebar = ({ sidebar, setSidebar }) => {
     (total, item) => total + item.price * item.quantity,
     0
   );
-  const deliveryFees = 0;
-  const total = subtotal + deliveryFees;
+  const deliveryFees = "Based on delivery option";
+  const total = subtotal;
 
   return (
     <>
@@ -128,9 +128,9 @@ const Sidebar = ({ sidebar, setSidebar }) => {
                       )}
                       <button
                         onClick={() => dispatch(resetCart())}
-                        className="border border-green-800 w-20 py-1 rounded-lg text-green-800 mt-1 text-sm hover:bg-red-300 active:bg-red-300 duration-300"
+                        className="border-2 inline-flex items-center  border-green-800 w-12 py-1 rounded-lg text-green-800 mt-2 mx-1 text-sm hover:bg-red-300 active:bg-red-300 duration-300"
                       >
-                        Clear Cart
+                        <DeleteIcon/> All
                       </button>
                     </div>
                   </div>
@@ -238,10 +238,10 @@ const Sidebar = ({ sidebar, setSidebar }) => {
                 </div>
                 <div className="flex text-sm justify-between">
                   <span>Delivery Fees:</span>
-                  <span>{`KSH ${deliveryFees}`}</span>
+                  <span>{`${deliveryFees}`}</span>
                 </div>
                 <div className="flex justify-between text-sm font-bold">
-                  <span>Total:</span>
+                  <span>Total</span>
                   <span>{`KSH ${total}`}</span>
                 </div>
                 <div className="flex justify-center">
