@@ -9,6 +9,12 @@ import mpesa from "../assets/YourBasket Checkout/M-Pesa-01 1.png"
 import PayPal from "../assets/YourBasket Checkout/PayPal.png";
 import Mastercard from "../assets/YourBasket Checkout/Mastercard.png";
 import visaLogo from "../assets/YourBasket Checkout/visa-logo.png"
+import american_express from "../assets/YourBasket Checkout/american_express.png"
+import Amex from "../assets/YourBasket Checkout/AMEX.png"
+import unionPay from "../assets/YourBasket Checkout/UnionPay.png"
+import airtel from "../assets/YourBasket Checkout/airtel.png"
+import vooma from "../assets/YourBasket Checkout/vooma.png"
+import pesalink from "../assets/YourBasket Checkout/pesalink.png"
 
 export {
   logo,
@@ -22,4 +28,10 @@ export {
   PayPal,
   Mastercard,
   visaLogo,
+  american_express,
+  Amex,
+  unionPay,
+  airtel,
+  vooma,
+  pesalink,
 };

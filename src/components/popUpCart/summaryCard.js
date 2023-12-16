@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
-import { mpesa, Mastercard, PayPal, visaLogo } from "../assets/index";
+import { mpesa, Mastercard, vooma, visaLogo, american_express, Amex, unionPay, pesalink, airtel } from "../../assets/index";
 import { Link } from "react-router-dom";
 
 const SummaryCard = () => {
@@ -44,54 +44,61 @@ const SummaryCard = () => {
             <p className="font-semibold text-md mb-2">
               Accepted Payment Methods
             </p>
+
             <div className="grid grid-cols-1 gap-2 justify-end">
               {/* Payment Method 1 */}
               <div className="flex items-center">
-                <input
-                  type="radio"
-                  id="debit/credit"
-                  name="paymentMethod"
-                  value="debit/credit"
-                />
                 <label htmlFor="ipay" className="ml-2">
                   <span className="mr-2 text-sm">Debit/Credit card</span>
                 </label>
-                <img src={visaLogo} alt="debit/credit" className=" w-auto" />
-                <div></div>
-                <img src={Mastercard} alt="debit/credit" className=" w-auto" />
-
+                <div className="flex w-11 h-8 gap-1">
+                <img src={visaLogo} alt="debit/credit" className=" w-auto border-[1px] border-gray-300 rounded-md px-2 py-1" />
+                
+                <img src={Mastercard} alt="debit/credit" className=" w-auto border-[1px] border-gray-300 rounded-md px-2 py-1" />
+                
+                <img src={american_express} alt="debit/credit" className=" w-auto border-[1px] border-gray-300 rounded-md px-2 py-1" />
+                
+                <img src={Amex} alt="debit/credit" className=" w-auto " />
+                </div>
               </div>
 
               {/* Payment Method 2 */}
               <div className="flex items-center">
-                <input
-                  type="radio"
-                  id="paypal"
-                  name="paymentMethod"
-                  value="paypal"
-                />
-                <label htmlFor="paypal" className="ml-2">
-                  <span className="mr-2 text-sm">Paypal</span>
+                <label htmlFor="bankTransfer" className="ml-2">
+                  <span className="mr-2 text-sm">Bank transfer</span>
                 </label>
-                <img src={PayPal} alt="PayPal" className="w-auto" />
+                <div className="flex gap-1">
+                <img src={vooma} alt="bankTransfer" className="w-auto" />
+               
+                <img src={pesalink} alt="bankTransfer" className=" w-auto" />
+                </div>
               </div>
 
               {/* Payment Method 3 */}
               <div className="flex justify-start items-center">
-                <input
-                  type="radio"
-                  id="mobileMoney"
-                  name="paymentMethod"
-                  value="mobileMoney"
-                />
-                
+
                 <label htmlFor="mobileMoney" className="ml-2">
                   <span className="mr-2 text-sm">Mobile Money</span>
                 </label>
-                <img src={mpesa} alt="mobileMoney" className=" w-auto " />
+                <div className="flex gap-1">
+                <img src={mpesa} alt="mpesa" className=" w-auto border-[1px] border-gray-300 rounded-md px-2 py-1" />
+                <div></div>
+                <img src={airtel} alt="airtel" className=" w-auto " />
+                </div>
               </div>
+
+              {/* Payment Method 4 */}
+              <div className="flex justify-start items-center">
+
+                <label htmlFor="other" className="ml-2">
+                  <span className="mr-2 text-sm">Other</span>
+                </label>
+                <img src={unionPay} alt="other" className=" w-auto border-[1px] border-gray-300 rounded-md px-2 py-1" />
+              </div>
+              
             </div>
           </div>
+          
 
           <div className="mt-4">
             <Link to="/checkout">

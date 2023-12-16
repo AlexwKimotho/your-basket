@@ -5,11 +5,9 @@ import {
   increaseQuantity,
   decreaseQuantity,
   deleteSelectedItems,
-  deleteItem,
   resetCart,
 } from "../../redux/amazonSlice";
 import DeleteIcon from "@mui/icons-material/Delete";
-import Checkbox from "@mui/icons-material/CheckBox";
 import { Mastercard } from "../../assets";
 import { PayPal } from "../../assets";
 import { visaLogo } from "../../assets";
