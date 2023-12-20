@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
+import DeliveryDialog from "../deliveryDalog/deliveryDialog"; 
 
 const MiniCartItem = ({ item }) => (
   <div className="flex items-center justify-between mb-2">
@@ -17,22 +18,34 @@ const SummaryCard = () => {
   const products = useSelector((state) => state.amazonReducer.products);
 
   const [totalAmt, setTotalAmt] = useState("");
+  const [showDialog, setShowDialog] = useState(false);
+  const [selectedOption, setSelectedOption] = useState("basketCollection");
+
   useEffect(() => {
     let price = 0;
-    products.map((item) => {
+    products.forEach((item) => {
       price += item.price * item.quantity;
-      return price;
     });
     setTotalAmt(price.toFixed(2));
   }, [products]);
+
+  const handleEditClick = () => {
+    setShowDialog(true);
+  };
+
+  const handleCloseDialog = () => {
+    setShowDialog(false);
+  };
+
+  const handleOptionSelect = (option) => {
+    setSelectedOption(option);
+  };
 
   return (
     <div>
       <div className="bg-white h-auto w-96 flex items-center p-4 rounded-lg">
         <div className="text-center w-full">
-          <p className="font-semibold text-mdpb-3">
-            Order Summary
-          </p>
+          <p className="font-semibold text-md pb-3">Order Summary</p>
 
           <div className="mt-4">
             <div className="max-h-32 overflow-y-auto">
@@ -47,7 +60,6 @@ const SummaryCard = () => {
               <span className="font-medium">Subtotal :</span>
               <span>ksh {totalAmt}</span>
             </p>
-         
 
             <p className="flex justify-between items-center text-sm pb-3">
               <span className="font-medium">Tax :</span>
@@ -55,15 +67,17 @@ const SummaryCard = () => {
             </p>
 
             <p className="flex justify-between items-center text-xs pb-3">
-              <span>Your Basket Collection Point (Default Pickup Location)</span>
-              <button className="border border-gray-600 w-9" > Edit</button>
+              <span>Your Basket Collection Point ({selectedOption === "doorDelivery" ? "Door Delivery" : "Default Pickup Location"})</span>
+              <button className="border border-gray-600 w-9" onClick={handleEditClick}>
+                Edit
+              </button>
             </p>
 
             <p className="flex justify-between items-center text-xs border-b-2 border-b-gray-350 pb-1">
               <span className="text-gray-400">Enter Coupon code</span>
-              <button className="bg-green-800  text-white w-12 py-1" > Apply</button>
+              <button className="bg-green-800 text-white w-12 py-1">Apply</button>
             </p>
-            <br/>
+            <br />
             <p className="flex justify-between items-center border-b-2 text-sm border-b-gray-400 pb-3">
               <span className="font-semibold">Total :</span>
               <span className="font-semibold">ksh {totalAmt}</span>
@@ -88,6 +102,14 @@ const SummaryCard = () => {
           </div>
         </div>
       </div>
+
+      {showDialog && (
+        <DeliveryDialog
+          onClose={handleCloseDialog}
+          onOptionSelect={handleOptionSelect}
+          currentOption={selectedOption}
+        />
+      )}
     </div>
   );
 };

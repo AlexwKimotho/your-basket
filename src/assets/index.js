@@ -15,10 +15,11 @@ import unionPay from "../assets/YourBasket Checkout/UnionPay.png"
 import airtel from "../assets/YourBasket Checkout/airtel.png"
 import vooma from "../assets/YourBasket Checkout/vooma.png"
 import pesalink from "../assets/YourBasket Checkout/pesalink.png"
+import Edit from "../assets/edit.png"
 
 export {
   logo,
-  darkLogo,
+  darkLogo, Edit,
   bdFlag,
   emptyCart,
   mpesa,
@@ -34,4 +35,5 @@ export {
   airtel,
   vooma,
   pesalink,
+ 
 };

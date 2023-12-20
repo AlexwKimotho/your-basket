@@ -13,6 +13,7 @@ import { aspira, ipay, mpesa } from "../../assets/index";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import SummaryCard from "./summaryCard";
+import Header from "./headerpopup";
 
 const CartPopup = ({ isOpen, onClose }) => {
   const products = useSelector((state) => state.amazonReducer.products);
@@ -75,7 +76,10 @@ const CartPopup = ({ isOpen, onClose }) => {
         className="fixed top-0 left-0 w-full h-full bg-black opacity-50"
         onClick={onClose}
       ></div>
+              <Header/>
+
       <div className="fixed w-[1150px] h-[600px] top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-gray-200 p-8 rounded-md z-50 overflow-y-auto">
+        <Header/>
         {products.length > 0 ? (
           <div className="container grid grid-cols-1 md:grid-cols-2 overflow-y-auto">
             <div className="bg-white p-4 rounded-lg w-[650px] overflow-y-auto">
