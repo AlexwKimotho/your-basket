@@ -7,8 +7,6 @@ import {
   RouterProvider,
   ScrollRestoration,
 } from "react-router-dom";
-import Footer from "./components/footer/Footer";
-import Header from "./components/header/Header";
 import Home from "./pages/Home";
 import Signin from "./pages/Signin";
 import Registration from "./pages/Registration";
@@ -18,10 +16,8 @@ import { productsData } from "./api/api";
 const Layout = () => {
   return (
     <div>
-      <Header />
       <ScrollRestoration />
       <Outlet />
-      <Footer />
     </div>
   );
 };

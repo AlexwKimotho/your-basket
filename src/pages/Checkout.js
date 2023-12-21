@@ -5,6 +5,7 @@ import { Accordion, AccordionTab } from "primereact/accordion";
 import { aspira, ipay, mpesa } from "../assets/index";
 import OrderSummary from "../components/checkout/orderSummary";
 import { useSelector } from "react-redux";
+import "../styles/accordion.css"
 
 const Checkout = () => {
   const products = useSelector((state) => state.amazonReducer.products);
@@ -28,7 +29,7 @@ const Checkout = () => {
           <div className="card bg-white p-4 w-[700px] rounded-lg mb-4 px-3">
             <h5 className="text-lg font-semibold mb-3 ">Payment</h5>
             <Accordion className="px-4 py-2 " activeIndex={0}>
-              <AccordionTab header="Pay Now" className="mb-6 font-semibold">
+              <AccordionTab header="Pay Now" className="mb-6 font-semibold custom-tab">
                 <div className="bg-gray-100 p-4 rounded-lg">
                   <select
                     className="border p-2 rounded-md px-5 font-medium text-sm"
@@ -46,7 +47,7 @@ const Checkout = () => {
                   {selectedPaymentMethod === "mpesa" && (
                     <div className="mt-2">
                       <select
-                        className="border p-2 rounded-md w-20 text-sm font-medium"
+                        className="border p-2 rounded-md w-20 text-sm font-medium "
                         value={countryCode}
                         onChange={(e) => setCountryCode(e.target.value)}
                       >

@@ -1,0 +1,200 @@
+.header {
+    background-color: #ffffff;
+    height: 60px;
+    position: relative;
+    width: 1440px;
+  }
+  
+  .header .header-item {
+    background-color: #d9d9d9;
+    height: 40px;
+    left: 40px;
+    position: absolute;
+    top: 10px;
+    width: 100px;
+  }
+  
+  .header .div {
+    background-color: #d9d9d9;
+    border-radius: 20px;
+    height: 40px;
+    left: 180px;
+    position: absolute;
+    top: 10px;
+    width: 500px;
+  }
+  
+  .header .header-item-2 {
+    background-color: #d9d9d9;
+    border-radius: 20px;
+    height: 40px;
+    left: 870px;
+    position: absolute;
+    top: 10px;
+    width: 150px;
+  }
+  
+  .header .header-item-3 {
+    background-color: #d9d9d9;
+    border-radius: 20px;
+    height: 40px;
+    left: 1060px;
+    position: absolute;
+    top: 10px;
+    width: 150px;
+  }
+  
+  .header .cart {
+    align-items: center;
+    display: inline-flex;
+    gap: 4px;
+    left: 1302px;
+    position: absolute;
+    top: 10px;
+  }
+  
+  .header .icons-cart {
+    height: 40px !important;
+    position: relative !important;
+    width: 40px !important;
+  }
+  
+  .header .text-wrapper {
+    color: #000000;
+    font-family: var(--h6-font-family);
+    font-size: var(--h6-font-size);
+    font-style: var(--h6-font-style);
+    font-weight: var(--h6-font-weight);
+    letter-spacing: var(--h6-letter-spacing);
+    line-height: var(--h6-line-height);
+    position: relative;
+    white-space: nowrap;
+    width: fit-content;
+  }
+  
+  .header .text-wrapper-2 {
+    color: #000000;
+    display: var(--collection-1-has-items);
+    font-family: var(--heading-2-font-family);
+    font-size: var(--heading-2-font-size);
+    font-style: var(--heading-2-font-style);
+    font-weight: var(--heading-2-font-weight);
+    left: 40px;
+    letter-spacing: var(--heading-2-letter-spacing);
+    line-height: var(--heading-2-line-height);
+    position: absolute;
+    text-align: center;
+    top: -9px;
+    width: 11px;
+  }
+  
+  .icons-cart {
+    height: 40px;
+    position: relative;
+    width: 40px;
+  }
+  
+  .icons-cart .vector {
+    height: 23px;
+    left: 3px;
+    position: absolute;
+    top: 5px;
+    width: 33px;
+  }
+  
+  .icons-cart .img {
+    height: 5px;
+    left: 15px;
+    position: absolute;
+    top: 30px;
+    width: 5px;
+  }
+  
+  .icons-cart .vector-2 {
+    height: 5px;
+    left: 27px;
+    position: absolute;
+    top: 30px;
+    width: 5px;
+  }
+  
+  .card-item-card {
+    align-items: center;
+    display: inline-flex;
+    flex-direction: column;
+    gap: 5px;
+    position: relative;
+  }
+  
+  .card-item-card .group {
+    background-color: #d9d9d9;
+    height: 150px;
+    position: relative;
+    width: 200px;
+  }
+  
+  .card-item-card .icons-maximize {
+    height: 16px !important;
+    left: 176px !important;
+    position: absolute !important;
+    top: 8px !important;
+    width: 16px !important;
+  }
+  
+  .card-item-card .frame-2 {
+    align-items: flex-start;
+    align-self: stretch;
+    display: flex;
+    flex-direction: column;
+    height: 45px;
+    justify-content: space-between;
+    position: relative;
+    width: 100%;
+  }
+  
+  .card-item-card .p {
+    color: #000000;
+    font-family: "Poppins-Regular", Helvetica;
+    font-size: 10px;
+    font-weight: 400;
+    height: 30px;
+    letter-spacing: 0;
+    line-height: normal;
+    margin-top: -1px;
+    position: relative;
+    width: 200px;
+  }
+  
+  .card-item-card .text-wrapper-2 {
+    background-color: #000000b2;
+    font-family: "Poppins-Regular", Helvetica;
+    font-size: 10px;
+    font-weight: 400;
+    letter-spacing: 0;
+    line-height: normal;
+    position: relative;
+    width: fit-content;
+  }
+  
+  .card-item-card .button-addcart-instance {
+    flex: 0 0 auto !important;
+  }
+
+  .box {
+    height: 150px;
+    width: 200px;
+  }
+  
+  .box .rectangle {
+    background-color: #d9d9d9;
+    height: 150px;
+    left: 0;
+    position: fixed;
+    top: 0;
+    width: 200px;
+  }
+  .sidebar-button {
+    margin-right: 20px; /* Adjust margin as needed */
+    /* Add any other styles for the button */
+  }
+  

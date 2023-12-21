@@ -21,3 +21,9 @@
     @apply text-gray-600 hover:text-black text-sm font-medium border-b-[1px] border-b-gray-400 hover:border-b-gray-700 flex items-center justify-end gap-2 hover:cursor-pointer duration-300 w-full;
   }
 }
+
+
+.custom-tab .p-accordion-header-icon {
+  /* Adjust the margin or any other styles to change the icon's position */
+  margin-right: 110px; /* Example: Move the icon 10px to the right */
+}

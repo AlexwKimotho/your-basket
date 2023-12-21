@@ -1,107 +1,39 @@
-import React, { useEffect, useRef, useState } from "react";
-import { useSelector } from "react-redux";
-import ArrowDropDownOutlinedIcon from "@mui/icons-material/ArrowDropDownOutlined";
+import React, { useState, useEffect, useRef } from "react";
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
-import SearchIcon from "@mui/icons-material/Search";
-import LogoutIcon from "@mui/icons-material/Logout";
-import { allItems } from "../../constants";
-import { logo } from "../../assets/index";
-import { Link } from "react-router-dom";
-import CartPopup  from "../popUpCart/cartPopUp"
+import CartPopup from "../popUpCart/cartPopUp";
+import "../../styles/styles.css";
+import { useSelector } from "react-redux";
 
 const Header = () => {
-  const products = useSelector((state) => state.amazonReducer.products);
-  const userInfo = useSelector((state) => state.amazonReducer.userInfo);
+  const [sidebar, setSidebar] = useState(false);
   const ref = useRef();
-  const [showAll, setShowAll] = useState(false);
   const [isCartOpen, setCartOpen] = useState(false);
+  const products = useSelector((state) => state.amazonReducer.products);
 
+
+
+  useEffect(() => {
+    document.body.addEventListener("click", (e) => {
+      if (e.target.contains(ref.current)) {
+        setSidebar(false);
+      }
+    });
+  }, [ref, sidebar]);
 
   const handleCartToggle = () => {
     setCartOpen(!isCartOpen);
   };
 
-  useEffect(() => {
-    document.body.addEventListener("click", (e) => {
-      if (e.target.contains(ref.current)) {
-        showAll && setShowAll(false);
-      }
-    });
-  }, [ref, showAll]);
-
-
   return (
-    <div className="sticky top-0 z-50">
-      <div className="w-full bg-white text-black px-4 py-3 flex md:justify-between items-center gap-2 md:gap-4 lgl:gap-2 xl:gap-4" style={{ backgroundColor: 'white', color: 'black' }}> 
-        {/* ===================== Header Image Start here ======================== ffcc00 */}
-        <Link to="/">
-          <div className="headerHover">
-            <img className="w-52 mt-2" src={logo} alt="logoImage" />
-          </div>
-        </Link>
-        {/* ===================== Header Image End here ========================== */}
-    
-        {/* ===================== Header Search Start here ======================== */}
-        <div className="hidden lgl:inline-flex h-10 rounded-md flex-grow relative">
-          <span
-            onClick={() => setShowAll(!showAll)}
-            className="w-14 h-full bg-gray-200 hover:bg-gray-300 border-2 cursor-pointer duration-300 text-sm text-amazon_blue font-titleFont flex items-center justify-center rounded-tl-md rounded-bl-md"
-          >
-            All{" "}
-            <span>
-              <ArrowDropDownOutlinedIcon />
-            </span>
-          </span>
-          {showAll && (
-            <div>
-              <ul
-                ref={ref}
-                className="absolute w-56 h-80 top-10 left-0 overflow-y-scroll overflow-x-hidden bg-black border-[1px] border-amazon_blue text-black p-2 flex flex-col gap-1 z-50"
-              >
-                {allItems.map((item) => (
-                  <li
-                    className="text-sm tracking-wide font-titleFont border-b-[1px] border-b-transparent hover:border-b-amazon_blue cursor-pointer duration-200"
-                    key={item._id}
-                  >
-                    {item.title}
-                  </li>
-                ))}
-              </ul>
-            </div>
-          )}
-
-          <input
-            className="h-full text-base bg-gray-50 text-amazon_blue flex-grow outline-none border-none px-2"
-            type="text"
-          />
-          <span className="w-12 h-full flex items-center justify-center bg-gray-200  hover:bg-[#f3a847] duration-300 text-amazon_blue cursor-pointer rounded-tr-md rounded-br-md">
-            <SearchIcon />
-          </span>
-        </div>
-        {/* ===================== Header Search End here ========================== */}
-        {/* ===================== Header Signin Start here ======================== */}
-        <Link to="/signin">
-          <div className="flex flex-col items-start justify-center headerHover">
-           
-              <p className="text-xs text-black font-light">
-                Sign-in
-              </p>   
-          </div>
-        </Link>
-        {/* ===================== Header Signin End here ========================== */}
-        {/* ===================== Header Cart Start here ========================== */}
-        {/* <Link to="/cart">
-          <div className="flex items-start justify-center headerHover relative">
-            <ShoppingCartIcon />
-            <p className="hidden mdl:inline-flex text-xs font-semibold mt-3 text-black">
-              Cart
-            </p>
-            <span className="absolute text-xs top-0 left-6 w-4 font-semibold p-1 h-4 bg-[#f3a847] text-amazon_blue rounded-full flex justify-center items-center">
-              {products.length > 0 ? products.length : 0}
-            </span>
-          </div>
-        </Link> */}
-     <button
+    <div className="header">
+      <div className="header-content">
+        <div className="header-item" />
+        <div className="div" />
+        <div className="header-item-2" />
+        <div className="header-item-3" />
+        <div className="cart">
+          {/* Use Link to navigate to the /cart route */}
+          <button
           className="flex items-start justify-center headerHover relative"
           onClick={handleCartToggle}
         >
@@ -111,21 +43,8 @@ const Header = () => {
             {products.length > 0 ? products.length : 0}
           </span>
         </button>
-        {userInfo && (
-          <div
-            
-            className="flex flex-col justify-center items-center headerHover relative"
-          >
-            <LogoutIcon />
-            <p className="hidden mdl:inline-flex text-xs font-semibold text-black">
-              Log out
-            </p>
-          </div>
-          
-        )}
-        {/* ===================== Header Cart End here ============================ */}
+        </div>
       </div>
-      {/* Render CartPopup conditionally */}
       {isCartOpen && <CartPopup isOpen={isCartOpen} onClose={handleCartToggle} />}
     </div>
   );

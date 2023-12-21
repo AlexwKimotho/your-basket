@@ -110,7 +110,7 @@ const Sidebar = ({ sidebar, setSidebar }) => {
                         <div className="flex items-center px-1">
                           <DeleteIcon />
                           {selectedItemsCount > 0 && (
-                            <span className="ml-1 text-xs">Selected </span>
+                            <span className="ml-1 text-xs text-white">Selected </span>
                           )}
                           ({selectedItemsCount})
                         </div>
