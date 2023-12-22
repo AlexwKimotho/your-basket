@@ -78,27 +78,10 @@ const SummaryCard = () => {
               <button className="bg-green-800 text-white w-12 py-1">Apply</button>
             </p>
             <br />
-            <p className="flex justify-between items-center border-b-2 text-sm border-b-gray-400 pb-3">
+            <p className="flex justify-between items-center text-sm pb-3">
               <span className="font-semibold">Total :</span>
               <span className="font-semibold">ksh {totalAmt}</span>
             </p>
-          </div>
-
-          <div className="mt-4">
-            <Link to="/checkout">
-              <button className="w-60 font-titleFont border-b-2 font-medium text-sm bg-gradient-to-tr from-yellow-400 to-yellow-200 border hover:from-yellow-300 hover:to-yellow-400 border-yellow-500 hover:border-yellow-700 active:bg-gradient-to-bl active:from-yellow-400 active:to-yellow-500 duration-200 py-1.5 rounded-md mt-3">
-                Proceed to Checkout
-              </button>
-            </Link>
-          </div>
-
-          <div className="mt-2 text-center">
-            <span>or</span>
-          </div>
-          <div className="relative inline-block mt-2">
-            <button className="bg-yellow-400 py-2 px-4 text-sm rounded-lg inline-flex items-center">
-              Checkout Later
-            </button>
           </div>
         </div>
       </div>

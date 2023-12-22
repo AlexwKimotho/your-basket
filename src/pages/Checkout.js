@@ -5,6 +5,7 @@ import { Accordion, AccordionTab } from "primereact/accordion";
 import { aspira, ipay, mpesa } from "../assets/index";
 import OrderSummary from "../components/checkout/orderSummary";
 import { useSelector } from "react-redux";
+import { Link } from "react-router-dom";
 import "../styles/accordion.css"
 
 const Checkout = () => {
@@ -64,9 +65,11 @@ const Checkout = () => {
                         value={"7*******"}
                         className="font-medimum text-sm border p-2 rounded-md"
                       />
+                      <Link to="/receipt">
                       <button className="bg-yellow-400 hover:bg-green-800 hover:text-white text-white px-4 py-2 rounded-md ml-2">
                         Pay Now
                       </button>
+                      </Link>
                     </div>
                   )}
                 </div>{" "}

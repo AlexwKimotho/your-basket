@@ -197,4 +197,411 @@
     margin-right: 20px; /* Adjust margin as needed */
     /* Add any other styles for the button */
   }
-  
+  /* styles.css */
+
+.element-receipt {
+  max-width: 800px;
+  margin: 20px auto;
+  padding: 20px;
+  background-color: #fff;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.title,
+.title-2,
+.title-5,
+.title-6 {
+  border-bottom: 1px solid #ccc;
+  margin-bottom: 10px;
+  padding-bottom: 10px;
+}
+
+.delivery-details,
+.order-details {
+  width: 48%;
+  float: left;
+  margin-right: 4%;
+}
+
+.order-items {
+  width: 48%;
+  float: left;
+}
+
+.payment-container,
+.tracking-container {
+  clear: both;
+  right: 20px; 
+}
+
+/* Add spacing and styling to your content */
+
+.text-wrapper-2,
+.text-wrapper-3,
+.text-wrapper-4,
+.text-wrapper-5,
+.text-wrapper-6,
+.text-wrapper-7,
+.text-wrapper-8,
+.text-wrapper-9,
+.text-wrapper-10,
+.text-wrapper-11,
+.text-wrapper-12,
+.text-wrapper-13,
+.text-wrapper-14,
+.text-wrapper-15,
+.text-wrapper-16,
+.text-wrapper-17,
+.text-wrapper-18,
+.text-wrapper-19,
+.text-wrapper-20 {
+  font-family: "Arial", sans-serif;
+  font-size: 14px;
+}
+
+/* Style for the buttons */
+.buttons-primay,
+.buttons-primay-2 {
+  display: flex;
+  align-items: center;
+  background-color: #007bff;
+  color: #fff;
+  padding: 10px 20px;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.buttons-primay-2 {
+  background-color: #28a745;
+  margin-left: 10px;
+}
+
+.ic-outline-print {
+  width: 20px;
+  margin-right: 10px;
+}
+
+.payment-container {
+  align-items: flex-start;
+  background-color: var(--white-neutral);
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  padding: 24px;
+  position: relative;
+  width: 624px;
+}
+
+.payment-container .title {
+  align-items: center;
+  align-self: stretch;
+  background-color: #ffffff;
+  display: flex;
+  flex: 0 0 auto;
+  gap: 10px;
+  padding: 10px;
+  position: relative;
+  width: 100%;
+}
+
+.payment-container .text-wrapper {
+  color: #000000;
+  font-family: var(--new-h4-font-family);
+  font-size: var(--new-h4-font-size);
+  font-style: var(--new-h4-font-style);
+  font-weight: var(--new-h4-font-weight);
+  letter-spacing: var(--new-h4-letter-spacing);
+  line-height: var(--new-h4-line-height);
+  margin-top: -2px;
+  position: relative;
+  white-space: nowrap;
+  width: fit-content;
+}
+
+.payment-container .payment-details {
+  align-items: flex-start;
+  align-self: stretch;
+  display: flex;
+  flex: 0 0 auto;
+  flex-direction: column;
+  gap: 20px;
+  padding: 10px;
+  position: relative;
+  width: 100%;
+}
+
+.payment-container .frame {
+  align-items: flex-start;
+  align-self: stretch;
+  display: flex;
+  flex: 0 0 auto;
+  justify-content: space-between;
+  position: relative;
+  width: 100%;
+}
+
+.payment-container .div {
+  align-items: flex-start;
+  display: inline-flex;
+  flex: 0 0 auto;
+  flex-direction: column;
+  gap: 5px;
+  justify-content: center;
+  position: relative;
+}
+
+.payment-container .text-wrapper-2 {
+  color: var(--black-neutral);
+  font-family: var(--new-h6-font-family);
+  font-size: var(--new-h6-font-size);
+  font-style: var(--new-h6-font-style);
+  font-weight: var(--new-h6-font-weight);
+  letter-spacing: var(--new-h6-letter-spacing);
+  line-height: var(--new-h6-line-height);
+  margin-top: -1px;
+  position: relative;
+  white-space: nowrap;
+  width: fit-content;
+}
+
+.payment-container .text-wrapper-3 {
+  color: var(--black-neutral);
+  font-family: var(--new-body-1-regular-font-family);
+  font-size: var(--new-body-1-regular-font-size);
+  font-style: var(--new-body-1-regular-font-style);
+  font-weight: var(--new-body-1-regular-font-weight);
+  letter-spacing: var(--new-body-1-regular-letter-spacing);
+  line-height: var(--new-body-1-regular-line-height);
+  position: relative;
+  white-space: nowrap;
+  width: fit-content;
+}
+
+.payment-container .div-2 {
+  align-items: flex-start;
+  align-self: stretch;
+  display: flex;
+  flex: 0 0 auto;
+  flex-direction: column;
+  gap: 10px;
+  position: relative;
+  width: 100%;
+}
+
+.payment-container .div-3 {
+  align-items: center;
+  align-self: stretch;
+  display: flex;
+  flex: 0 0 auto;
+  justify-content: space-between;
+  position: relative;
+  width: 100%;
+}
+
+.payment-container .text-wrapper-4 {
+  color: var(--black-neutral);
+  font-family: var(--new-body-1-regular-font-family);
+  font-size: var(--new-body-1-regular-font-size);
+  font-style: var(--new-body-1-regular-font-style);
+  font-weight: var(--new-body-1-regular-font-weight);
+  letter-spacing: var(--new-body-1-regular-letter-spacing);
+  line-height: var(--new-body-1-regular-line-height);
+  margin-top: -1px;
+  position: relative;
+  white-space: nowrap;
+  width: fit-content;
+}
+
+.payment-container .divider {
+  align-self: stretch;
+  height: 1px;
+  object-fit: cover;
+  position: relative;
+  width: 100%;
+}
+
+.payment-container .text-wrapper-5 {
+  color: var(--black-neutral);
+  font-family: var(--new-h7-font-family);
+  font-size: var(--new-h7-font-size);
+  font-style: var(--new-h7-font-style);
+  font-weight: var(--new-h7-font-weight);
+  letter-spacing: var(--new-h7-letter-spacing);
+  line-height: var(--new-h7-line-height);
+  margin-top: -1px;
+  position: relative;
+  white-space: nowrap;
+  width: fit-content;
+}
+
+.payment-container .img {
+  align-self: stretch;
+  height: 1px;
+  margin-bottom: -1px;
+  object-fit: cover;
+  position: relative;
+  width: 100%;
+}
+
+.tracking-container {
+  align-items: flex-start;
+  background-color: var(--white-neutral);
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  padding: 24px;
+  position: relative;
+  width: 624px;
+}
+
+.tracking-container .title {
+  align-items: flex-start;
+  display: flex;
+  flex: 0 0 auto;
+  gap: 10px;
+  position: relative;
+  width: 469px;
+}
+
+.tracking-container .text-wrapper {
+  color: var(--black-neutral);
+  font-family: var(--new-h4-font-family);
+  font-size: var(--new-h4-font-size);
+  font-style: var(--new-h4-font-style);
+  font-weight: var(--new-h4-font-weight);
+  letter-spacing: var(--new-h4-letter-spacing);
+  line-height: var(--new-h4-line-height);
+  margin-top: -1px;
+  position: relative;
+  white-space: nowrap;
+  width: fit-content;
+}
+
+.tracking-container .tracking-list {
+  align-items: flex-start;
+  align-self: stretch;
+  display: flex;
+  flex: 0 0 auto;
+  flex-direction: column;
+  gap: 15px;
+  position: relative;
+  width: 100%;
+}
+
+.tracking-container .list-item {
+  align-items: center;
+  align-self: stretch;
+  display: flex;
+  flex: 0 0 auto;
+  gap: 20px;
+  position: relative;
+  width: 100%;
+}
+
+.tracking-container .carbon-checkmark {
+  height: 40px;
+  position: relative;
+  width: 40px;
+}
+
+.tracking-container .tracking-details {
+  align-items: flex-start;
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  flex-grow: 1;
+  gap: 5px;
+  justify-content: center;
+  position: relative;
+}
+
+.tracking-container .tracking-title-and {
+  align-items: center;
+  align-self: stretch;
+  display: flex;
+  flex: 0 0 auto;
+  justify-content: space-between;
+  position: relative;
+  width: 100%;
+}
+
+.tracking-container .div {
+  color: var(--black-neutral);
+  font-family: var(--new-h7-font-family);
+  font-size: var(--new-h7-font-size);
+  font-style: var(--new-h7-font-style);
+  font-weight: var(--new-h7-font-weight);
+  letter-spacing: var(--new-h7-letter-spacing);
+  line-height: var(--new-h7-line-height);
+  margin-top: -1px;
+  position: relative;
+  white-space: nowrap;
+  width: fit-content;
+}
+
+.tracking-container .text-wrapper-2 {
+  color: var(--black-neutral);
+  font-family: var(--new-body-1-regular-font-family);
+  font-size: var(--new-body-1-regular-font-size);
+  font-style: var(--new-body-1-regular-font-style);
+  font-weight: var(--new-body-1-regular-font-weight);
+  letter-spacing: var(--new-body-1-regular-letter-spacing);
+  line-height: var(--new-body-1-regular-line-height);
+  position: relative;
+  white-space: nowrap;
+  width: fit-content;
+}
+
+.tracking-container .p {
+  color: var(--black-neutral);
+  font-family: var(--new-caption-1-font-family);
+  font-size: var(--new-caption-1-font-size);
+  font-style: var(--new-caption-1-font-style);
+  font-weight: var(--new-caption-1-font-weight);
+  letter-spacing: var(--new-caption-1-letter-spacing);
+  line-height: var(--new-caption-1-line-height);
+  position: relative;
+  width: 355px;
+}
+
+.tracking-container .text-wrapper-3 {
+  color: #00000066;
+  font-family: var(--new-h7-font-family);
+  font-size: var(--new-h7-font-size);
+  font-style: var(--new-h7-font-style);
+  font-weight: var(--new-h7-font-weight);
+  letter-spacing: var(--new-h7-letter-spacing);
+  line-height: var(--new-h7-line-height);
+  margin-top: -1px;
+  position: relative;
+  white-space: nowrap;
+  width: fit-content;
+}
+
+.tracking-container .text-wrapper-4 {
+  color: #00000066;
+  font-family: var(--new-body-1-regular-font-family);
+  font-size: var(--new-body-1-regular-font-size);
+  font-style: var(--new-body-1-regular-font-style);
+  font-weight: var(--new-body-1-regular-font-weight);
+  letter-spacing: var(--new-body-1-regular-letter-spacing);
+  line-height: var(--new-body-1-regular-line-height);
+  position: relative;
+  white-space: nowrap;
+  width: fit-content;
+}
+
+.tracking-container .text-wrapper-5 {
+  align-self: stretch;
+  color: #00000066;
+  font-family: var(--new-caption-1-font-family);
+  font-size: var(--new-caption-1-font-size);
+  font-style: var(--new-caption-1-font-style);
+  font-weight: var(--new-caption-1-font-weight);
+  letter-spacing: var(--new-caption-1-letter-spacing);
+  line-height: var(--new-caption-1-line-height);
+  position: relative;
+}
+

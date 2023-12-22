@@ -10,6 +10,7 @@ import {
 import Home from "./pages/Home";
 import Signin from "./pages/Signin";
 import Registration from "./pages/Registration";
+import OrderReceipt from"./pages/OrderReceipt";
 import Checkout from "./pages/Checkout";
 import { productsData } from "./api/api";
 
@@ -31,7 +32,9 @@ function App() {
         </Route>
         <Route path="/signin" element={<Signin />}></Route>
         <Route path="/registration" element={<Registration />}></Route>
-        <Route path="/checkout" element={<Checkout />}></Route>
+        <Route path="/checkout" element={<Checkout/>}></Route>
+        <Route path="/receipt" element={<OrderReceipt />}></Route>
+
       </Route>
     )
   );

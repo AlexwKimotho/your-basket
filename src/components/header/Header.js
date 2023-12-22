@@ -34,7 +34,7 @@ const Header = () => {
         <div className="cart">
           {/* Use Link to navigate to the /cart route */}
           <button
-          className="flex items-start justify-center headerHover relative"
+          className="flex items-start justify-center headerHover relative ml-[-70px]"
           onClick={handleCartToggle}
         >
           <ShoppingCartIcon />
