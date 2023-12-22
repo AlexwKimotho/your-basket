@@ -31,7 +31,7 @@ const OrderReceipt = () => {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    fetch("https://fakestoreapi.com/products?limit=5")
+    fetch("https://fakestoreapi.com/products?limit=4")
       .then((response) => response.json())
       .then((data) => {
         setOrderItems(data);

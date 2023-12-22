@@ -25,6 +25,24 @@ const DeliveryDialog = ({ onClose, onOptionSelect, currentOption }) => {
         </div>
         {/* Right Card */}
         <div className="bg-white h-[300px] rounded-md p-5 flex-1 pl-4">
+          <div className="flex justify-end">
+            <button className="text-gray-500" onClick={onClose}>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                className="h-6 w-6"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth="2"
+                  d="M6 18L18 6M6 6l12 12"
+                />
+              </svg>
+            </button>
+          </div>
           <p className="text-lg font-semibold mb-4">Door Delivery</p>
           <div className="mb-4">
             <input
@@ -39,8 +57,12 @@ const DeliveryDialog = ({ onClose, onOptionSelect, currentOption }) => {
               Your Basket Collection Point
             </label>
           </div>
-          <p className="mt-[-15px] text-sm ml-[20px] mb-3 ">Opposite Jamii Mosque, 400m from Ngara Square</p>
-          <button className="border bg-yellow-400 text-white hover:bg-green-800 hover:text-white w-12 rounded-md ml-[20px] mb-4 ">save</button>
+          <p className="mt-[-15px] text-sm ml-[20px] mb-3 ">
+            Opposite Jamii Mosque, 400m from Ngara Square
+          </p>
+          <button className="border bg-yellow-400 text-white hover:bg-green-800 hover:text-white w-12 rounded-md ml-[20px] mb-4 ">
+            save
+          </button>
           <div>
             <input
               type="radio"
@@ -55,8 +77,9 @@ const DeliveryDialog = ({ onClose, onOptionSelect, currentOption }) => {
               Your Basket Collection 2
             </label>
           </div>
-          <p className="text-sm ml-[20px] mb-3 ">Opposite Jamii Mosque, 400m from Ngara Square</p>
-
+          <p className="text-sm ml-[20px] mb-3 ">
+            Opposite Jamii Mosque, 400m from Ngara Square
+          </p>
         </div>{" "}
       </div>
     </div>
